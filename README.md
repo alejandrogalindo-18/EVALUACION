@@ -7,6 +7,14 @@ El sistema compara ambas fuentes de datos y genera un nuevo archivo `resultados.
 
 ---
 
+## Porque esta idea
+
+La idea surgió de una necesidad común en la educación: automatizar la revisión de evaluaciones. En muchos casos, los docentes deben revisar formularios o cuestionarios de forma manual, lo que toma tiempo y puede generar errores.
+Por eso, el proyecto busca leer automáticamente las respuestas de los estudiantes desde un archivo, compararlas con una clave de respuestas correctas, y finalmente generar los resultados de manera rápida y precisa.
+Este sistema podría usarse en colegios, universidades o cursos virtuales para evaluar cuestionarios tipo opción múltiple, ahorrando tiempo y garantizando una corrección más justa.
+
+# En resumen, el propósito del proyecto es transformar la evaluación tradicional en un proceso digital, automático y confiable.
+
 ##  Requisitos del Proyecto
 
 Antes de ejecutar el programa, asegúrate de tener instalado lo siguiente:
@@ -78,4 +86,10 @@ python "c:\Users\ander\Documents\GitHub\EVALUACION\Evaluacion-automtica-de-formu
     # Opcional: lista de archivos o carpetas a excluir del repositorio.
 ```
 
-   ✅ PROCESO COMPLETADO CORRECTAMENTE ✅
+## Software en los procesos misionales 
+
+En este proyecto, el software de Evaluación Automática de Formularios y Exportación de Resultados cumple una función misional dentro del ámbito educativo, ya que está diseñado para automatizar el proceso de evaluación de los estudiantes, una de las tareas principales de toda institución académica.
+El sistema permite leer las respuestas de los alumnos desde un archivo CSV, compararlas con una clave de respuestas correctas, y generar automáticamente los resultados finales en otro archivo CSV.
+De esta manera, se optimiza el tiempo de calificación, se reducen los errores humanos y se garantiza una evaluación justa y rápida.
+
+## PROCESO COMPLETADO CORRECTAMENTE

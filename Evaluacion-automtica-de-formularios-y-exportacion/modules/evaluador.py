@@ -1,29 +1,42 @@
-def leer_clave(path):
-    clave = {}
-    with open(path, 'r') as f:
-        for linea in f:
-            num, resp = linea.strip().split(',')
-            clave[num] = resp
-    return clave
+import csv
+import os
 
-def leer_respuestas(path):
-    estudiantes = []
-    with open(path, 'r') as f:
-        encabezado = f.readline().strip().split(',')[1:]
-        for linea in f:
-            partes = linea.strip().split(',')
-            nombre = partes[0]
-            respuestas = partes[1:]
-            estudiantes.append((nombre, respuestas))
-    return estudiantes, encabezado
+def evaluar_respuestas(clave, respuestas_estudiante):
+    """
+    Compara las respuestas de un estudiante con la clave.
+    Devuelve el número de aciertos.
+    """
+    aciertos = 0
+    for pregunta, respuesta_correcta in clave.items():
+        if pregunta in respuestas_estudiante and respuestas_estudiante[pregunta].upper() == respuesta_correcta.upper():
+            aciertos += 1
+    return aciertos
 
-def evaluar_respuestas(clave_path, respuestas_path, salida_path):
-    clave = leer_clave(clave_path)
-    estudiantes, preguntas = leer_respuestas(respuestas_path)
+def generar_resultados_csv(clave, respuestas):
+    """
+    Genera el archivo src/data/resultados.csv con los resultados finales.
+    Calcula aciertos y porcentaje para cada estudiante.
+    """
+    resultados = {}
+    ruta_salida = "src/data/resultados.csv"
+    os.makedirs(os.path.dirname(ruta_salida), exist_ok=True)
 
-    with open(salida_path, 'w') as f:
-        f.write("nombre,aciertos\n")
-        for nombre, respuestas in estudiantes:
-            aciertos = sum(1 for i, r in enumerate(respuestas) if r == clave.get(str(i+1)))
-            f.write(f"{nombre},{aciertos}\n")
-    print(f"✅ Archivo generado: {salida_path}")
+    with open(ruta_salida, mode="w", newline="", encoding="utf-8") as archivo:
+        campos = ["Nombre", "Aciertos", "Porcentaje"]
+        escritor = csv.DictWriter(archivo, fieldnames=campos)
+        escritor.writeheader()
+
+        total_preguntas = len(clave)
+
+        for nombre, resp in respuestas.items():
+            aciertos = evaluar_respuestas(clave, resp)
+            porcentaje = round((aciertos / total_preguntas) * 100, 2)
+            resultados[nombre] = {"Aciertos": aciertos, "Porcentaje": porcentaje}
+            escritor.writerow({
+                "Nombre": nombre,
+                "Aciertos": aciertos,
+                "Porcentaje": porcentaje
+            })
+
+    print(f"\n📊 Archivo generado: {ruta_salida}")
+    return resultados

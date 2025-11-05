@@ -78,7 +78,4 @@ python "c:\Users\ander\Documents\GitHub\EVALUACION\Evaluacion-automtica-de-formu
     # Opcional: lista de archivos o carpetas a excluir del repositorio.
 ```
 
-
-==============================================
    ✅ PROCESO COMPLETADO CORRECTAMENTE ✅
-----------------------------------------------

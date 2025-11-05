@@ -22,3 +22,9 @@ Sin embargo, asegúrate de tener un entorno limpio ejecutando:
 
 ```bash
 python --version
+```
+```
+Para ejecutar el codigo python "c:\Users\...\...\GitHub\EVALUACION\Evaluacion-automtica-de-formularios-y-exportacion\src\main.py"
+python "c:\Users\ander\Documents\GitHub\EVALUACION\Evaluacion-automtica-de-formularios-y-exportacion\src\main.py"
+
+```

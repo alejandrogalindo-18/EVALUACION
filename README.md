@@ -28,3 +28,52 @@ Para ejecutar el codigo python "c:\Users\...\...\GitHub\EVALUACION\Evaluacion-au
 python "c:\Users\ander\Documents\GitHub\EVALUACION\Evaluacion-automtica-de-formularios-y-exportacion\src\main.py"
 
 ```
+---
+### Estructura de carpetas 
+---
+```
+
+│
+├── src/
+│   ├── main.py
+│   │   # Archivo principal del proyecto.
+│   │   # Se encarga de coordinar la carga de datos, la evaluación
+│   │   # y la exportación de los resultados.
+│   │
+│   ├── modules/
+│   │   ├── loader.py
+│   │   │   # Contiene funciones para leer archivos CSV.
+│   │   │   # Funciones principales:
+│   │   │   # - cargar_csv_como_diccionario()
+│   │   │   # - cargar_respuestas_csv()
+│   │   │
+│   │   ├── exporter.py
+│   │   │   # Contiene la lógica para comparar las respuestas de los estudiantes
+│   │   │   # con la clave correcta y generar el archivo 'resultados.csv'.
+│   │   │
+│   │   └── __init__.py
+│   │       # Archivo vacío que marca esta carpeta como un paquete Python.
+│   │
+│   └── data/
+│       ├── clave.csv
+│       │   # Archivo con las respuestas correctas del examen.
+│       │   # Ejemplo:
+│       │   # 1,A
+│       │   # 2,C
+│       │
+│       ├── respuestas.csv
+│       │   # Archivo con las respuestas de los estudiantes.
+│       │   # Ejemplo:
+│       │   # nombre,1,2,3,4
+│       │   # Laura,A,C,B,D
+│       │   # Pedro,B,A,D,C
+│       │
+│       └── resultados.csv
+│           # Archivo generado automáticamente con los resultados finales.
+│
+├── README.md
+│   # Documentación del proyecto (este archivo).
+│
+└── .gitignore
+    # Opcional: lista de archivos o carpetas a excluir del repositorio.
+```
